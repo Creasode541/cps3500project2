@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Connect Four</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+      .board {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 10px;
+      }
+
+      .square {
+        width: 50px;
+        height: 50px;
+        border: 2px solid black;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .player-1 {
+        background-color: red;
+      }
+
+      .player-2 {
+        background-color: yellow;
+      }
+
+      #reset-btn {
+        margin-top: 10px;
+        padding: 5px 10px;
+        font-size: 16px;
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #message {
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board" id="game-board">
+      <div class="square" data-row="0" data-col="0"></div>
+      <div class="square" data-row="0" data-col="1"></div>
+      <div class="square" data-row="0" data-col="2"></div>
+      <div class="square" data-row="0" data-col="3"></div>
+      <div class="square" data-row="0" data-col="4"></div>
+      <div class="square" data-row="0" data-col="5"></div>
+      <div class="square" data-row="0" data-col="6"></div>
+      <div class="square" data-row="1" data-col="0"></div>
+      <div class="square" data-row="1" data-col="1"></div>
+      <div class="square" data-row="1" data-col="2"></div>
+      <div class="square" data-row="1" data-col="3"></div>
+      <div class="square" data-row="1" data-col="4"></div>
+      <div class="square" data-row="1" data-col="5"></div>
+      <div class="square" data-row="1" data-col="6"></div>
+      <div class="square" data-row="2" data-col="0"></div>
+      <div class="square" data-row="2" data-col="1"></div>
+      <div class="square" data-row="2" data-col="2"></div>
+      <div class="square" data-row="2" data-col="3"></div>
+      <div class="square" data-row="2" data-col="4"></div>
+      <div class="square" data-row="2" data-col="5"></div>
+      <div class="square" data-row="2" data-col="6"></div>
+      <div class="square" data-row="3" data-col="0"></div>
+      <div class="square" data-row="3" data-col="1"></div>
+      <div class="square" data-row="3" data-col="2"></div>
+      <div class="square" data-row="3" data-col="3"></div>
+      <div class="square" data-row="3" data-col="4"></div>
+      <div class="square" data-row="3" data-col="5"></div>
+      <div class="square" data-row="3" data-col="6"></div>
+      <div class="square" data-row="4" data-col="0"></div>
+      <div class="square" data-row="4" data-col="1"></div>
+      <div class="square" data-row="4" data-col="2"></div>
+      <div class="square" data-row="4" data-col="3"></div>
+      <div class="square" data-row="4" data-col="4"></div>
+      <div class="square" data-row="4" data-col="5"></div>
+      <div class="square" data-row="4" data-col="6"></div>
+      <div class="square" data-row="5" data-col="0"></div>
+      <div class="square" data-row="5" data-col="1"></div>
+      <div class="square" data-row="5" data-col="2"></div>
+      <div class="square" data-row="5" data-col="3"></div>
+      <div class="square" data-row="5" data-col="4"></div>
+      <div class="square" data-row="5" data-col="5"></div>
+      <div class="square" data-row="5" data-col="6"></div>
+    </div>
+    <button id="reset-btn">Reset</button>
+    <div id="message"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>
+
